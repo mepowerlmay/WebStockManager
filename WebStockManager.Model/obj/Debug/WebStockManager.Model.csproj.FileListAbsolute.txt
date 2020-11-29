@@ -1,0 +1,6 @@
+D:\mepowerlmay\WebStockManager\WebStockManager.Model\bin\Debug\WebStockManager.Model.dll
+D:\mepowerlmay\WebStockManager\WebStockManager.Model\bin\Debug\WebStockManager.Model.pdb
+D:\mepowerlmay\WebStockManager\WebStockManager.Model\obj\Debug\WebStockManager.Model.csprojAssemblyReference.cache
+D:\mepowerlmay\WebStockManager\WebStockManager.Model\obj\Debug\WebStockManager.Model.csproj.CoreCompileInputs.cache
+D:\mepowerlmay\WebStockManager\WebStockManager.Model\obj\Debug\WebStockManager.Model.dll
+D:\mepowerlmay\WebStockManager\WebStockManager.Model\obj\Debug\WebStockManager.Model.pdb

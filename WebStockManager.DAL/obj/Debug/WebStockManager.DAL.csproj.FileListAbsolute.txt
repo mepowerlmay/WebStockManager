@@ -1,0 +1,11 @@
+D:\mepowerlmay\WebStockManager\WebStockManager.DAL\obj\Debug\WebStockManager.DAL.csprojAssemblyReference.cache
+D:\mepowerlmay\WebStockManager\WebStockManager.DAL\obj\Debug\WebStockManager.DAL.csproj.CoreCompileInputs.cache
+D:\mepowerlmay\WebStockManager\WebStockManager.DAL\bin\Debug\WebStockManager.DAL.dll
+D:\mepowerlmay\WebStockManager\WebStockManager.DAL\bin\Debug\WebStockManager.DAL.pdb
+D:\mepowerlmay\WebStockManager\WebStockManager.DAL\bin\Debug\Dapper.dll
+D:\mepowerlmay\WebStockManager\WebStockManager.DAL\bin\Debug\WebStockManager.Model.dll
+D:\mepowerlmay\WebStockManager\WebStockManager.DAL\bin\Debug\WebStockManager.Model.pdb
+D:\mepowerlmay\WebStockManager\WebStockManager.DAL\bin\Debug\Dapper.xml
+D:\mepowerlmay\WebStockManager\WebStockManager.DAL\obj\Debug\WebStockManager.DAL.csproj.CopyComplete
+D:\mepowerlmay\WebStockManager\WebStockManager.DAL\obj\Debug\WebStockManager.DAL.dll
+D:\mepowerlmay\WebStockManager\WebStockManager.DAL\obj\Debug\WebStockManager.DAL.pdb

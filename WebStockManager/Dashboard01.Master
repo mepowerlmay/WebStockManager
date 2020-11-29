@@ -1,0 +1,75 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Dashboard01.master.cs" Inherits="WebStockManager.Dashboard01" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+       <script src="<%= ResolveUrl("~/Scripts/jquery-1.9.1.min.js") %>"></script>
+    <script src="<%= ResolveUrl("~/Scripts/bootstrap.min.js") %>"></script>
+    <script src="<%= ResolveUrl("~/Scripts/jquery.popup.js") %>"></script>
+        <script src="<%= ResolveUrl("~/Scripts/My97DatePicker/WdatePicker.js") %>"></script>
+    <script src="<%= ResolveUrl("~/Scripts/My97DatePicker/lang/.zh-twjs") %>"></script>
+
+      
+    <script>
+        $(document).ready(function () {
+                    var url = window.location;
+                    $('.navbar .nav').find('.active').removeClass('active');
+                    $('.navbar .nav li a').each(function () {
+                        if (this.href == url) {
+                            $(this).parent().addClass('active');
+                        }
+                    });
+        });
+
+        function GetDate() {
+            WdatePicker({ lang: 'zh-tw' ,dateFmt:'yyyy/MM/dd'  });
+        }
+    </script>
+    <link href=" <%= ResolveUrl("~/Content/bootstrap.min.css") %>" rel="stylesheet" />
+    <link href=" <%= ResolveUrl("~/Content/rtable.css") %>" rel="stylesheet" />
+    <link href=" <%= ResolveUrl("~/Scripts/My97DatePicker/skin/WdatePicker.css") %>" rel="stylesheet" />
+
+
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">股票管理系統</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                
+      
+                    <li><a href="<%= ResolveUrl("~/Menus/MngStockHoliday.aspx") %>">休市設定 </a></li>
+        
+                  
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="<%= ResolveUrl("~/LogOut.aspx") %>">登出    </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <form id="form1" runat="server">
+            <div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </form>
+    </div>
+   
+</body>
+</html>
