@@ -37,9 +37,11 @@ namespace WebStockManager
         }
         private void BindRep()
         {
+          IEnumerable<StockCalendar> result =  dal.GetListArray("*", "Id desc", anp.PageSize, anp.CurrentPageIndex, GetCond());
 
+            result = result.OrderByDescending(i => i.ReSetDate);
 
-            GridView1.DataSource = dal.GetListArray("*", "Id desc", anp.PageSize, anp.CurrentPageIndex, GetCond());
+            GridView1.DataSource = result;
             GridView1.DataBind();
         }
         private string GetCond()
@@ -88,15 +90,14 @@ namespace WebStockManager
 
                     break;
                 case "cmdbtnEdit":
-                    ClearDataToForm(); //清除資料                                       
-                    hidenId.Value = Id;
+                    ClearDataToForm(); //清除資料                                                  
                     m = dal.GetModel(TypeChange.StringToInt(Id));
                     SetDataToForm(m);
                     ShowCRUD(emCRUD.Edit);    //設定顯示方式                          
                     break;
                 case "cmdbtnDel":
-                    whereClausesBuilder.appendCriteria("AA001", Id, "  AA001= {0} ", ref cond, ref GroupSqlParameter);
-                 //  pARAADAL.DeleteByCond(cond, GroupSqlParameter);
+                    whereClausesBuilder.appendCriteriaText( Id, "  Id= {0} ", ref cond);
+                    dal.DeleteByCond(cond);  
                     msg = "刪除成功!!";
                     Tool.Alert(msg, this);
                     anp.RecordCount = dal.CalcCount(GetCond());
@@ -113,13 +114,20 @@ namespace WebStockManager
         /// <param name="m"></param>               
         private void SetDataToForm(StockCalendar m)
         {
+            DateTime tempDate = DateTime.ParseExact(m.ReSetDate, "yyyyMMdd", null, System.Globalization.DateTimeStyles.AllowWhiteSpaces);
 
+            txtReSetDate.Text = tempDate.ToString("yyyy/MM/dd");
+
+            hidenId.Value = m.Id.ToString();
         }
         /// <summary>                    
         /// 清除From資訊                 
         /// </summary>                   
         private void ClearDataToForm()
         {
+            txtReSetDate.Text = "";
+
+            hidenId.Value = "";
 
         }
         /// <summary>                                                  
@@ -144,6 +152,29 @@ namespace WebStockManager
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtReSetDate.Text.Trim()))
+            {
+                Tool.Alert( "請輸入日期" , this);
+                return;
+            }
+
+            string cond = " Id = "+  hidenId.Value ;
+            StockCalendar m = new StockCalendar();
+            if (string.IsNullOrEmpty(hidenId.Value))
+            {
+                m.ReSetDate = DateTime.Parse(txtReSetDate.Text.Trim()).ToString("yyyyMMdd");
+                m.chYear = ddlYears.SelectedValue;
+                dal.Add(m);
+            }
+            else
+            {
+                m = dal.GetModelByCond(cond);
+                m.ReSetDate = DateTime.Parse(txtReSetDate.Text.Trim()).ToString("yyyyMMdd");
+                m.chYear = ddlYears.SelectedValue;
+                dal.Update(m);
+            }
+
+            Tool.Alert("儲存成功!!" , this);
 
         }
 
@@ -186,11 +217,30 @@ namespace WebStockManager
             anp.RecordCount = dal.CalcCount(GetCond());
             BindRep();
 
-            Tool.Alert( "新增完成", this);
+            Tool.Alert( "年度產生完成!!", this);
 
         }
 
         protected void btnQuery_Click(object sender, EventArgs e)
+        {
+            anp.RecordCount = dal.CalcCount(GetCond());
+            BindRep();
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            ShowCRUD(emCRUD.Edit);
+            ClearDataToForm();
+        }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+
+            ShowCRUD(emCRUD.View);
+            ClearDataToForm();
+        }
+
+        protected void ddlYears_SelectedIndexChanged(object sender, EventArgs e)
         {
             anp.RecordCount = dal.CalcCount(GetCond());
             BindRep();

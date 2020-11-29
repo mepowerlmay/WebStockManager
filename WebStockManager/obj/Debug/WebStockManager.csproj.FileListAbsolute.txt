@@ -49,7 +49,6 @@ D:\mepowerlmay\WebStockManager\WebStockManager\bin\roslyn\vbc.exe.config
 D:\mepowerlmay\WebStockManager\WebStockManager\bin\roslyn\vbc.rsp
 D:\mepowerlmay\WebStockManager\WebStockManager\bin\roslyn\VBCSCompiler.exe
 D:\mepowerlmay\WebStockManager\WebStockManager\bin\roslyn\VBCSCompiler.exe.config
-D:\mepowerlmay\WebStockManager\WebStockManager\bin\Alonso.Utility.dll
 D:\mepowerlmay\WebStockManager\WebStockManager\bin\AspNetPager.dll
 D:\mepowerlmay\WebStockManager\WebStockManager\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\mepowerlmay\WebStockManager\WebStockManager\bin\WebStockManager.DAL.dll

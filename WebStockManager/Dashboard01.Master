@@ -52,7 +52,7 @@
                 <ul class="nav navbar-nav">
                 
       
-                    <li><a href="<%= ResolveUrl("~/Menus/MngStockHoliday.aspx") %>">休市設定 </a></li>
+                    <li><a href="<%= ResolveUrl("~/MngStockHoliday.aspx") %>">休市設定 </a></li>
         
                   
                 </ul>
